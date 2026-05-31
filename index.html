@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神公司 ｜ AI 生態經濟的 11.5 層 Enabler</title>
+<style>
+  :root{
+    --bg:#0a0c14; --bg2:#10131f; --card:#161a29; --card2:#1c2133;
+    --line:#262c41; --txt:#e8ebf5; --muted:#9aa3bd; --dim:#6b7390;
+    --acc:#7c5cff; --acc2:#2dd4bf; --gold:#f5b942; --red:#ff6b6b; --green:#43d17a;
+    --grad:linear-gradient(135deg,#7c5cff 0%,#2dd4bf 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:radial-gradient(1200px 600px at 80% -10%,rgba(124,92,255,.18),transparent 60%),
+               radial-gradient(900px 500px at 0% 10%,rgba(45,212,191,.12),transparent 55%),
+               var(--bg);
+    color:var(--txt);
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",-apple-system,system-ui,sans-serif;
+    line-height:1.75; letter-spacing:.01em; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+      background:rgba(10,12,20,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:20px;height:60px;overflow-x:auto}
+  nav .brand{font-weight:800;letter-spacing:.04em;white-space:nowrap}
+  nav .brand span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap;transition:.2s}
+  nav a:hover{color:var(--txt)}
+  /* hero */
+  header{padding:90px 0 70px;text-align:center}
+  .badge{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--acc2);
+         border:1px solid var(--line);border-radius:999px;padding:6px 18px;margin-bottom:28px;background:var(--card)}
+  h1{font-size:clamp(34px,6vw,62px);line-height:1.15;font-weight:850;margin-bottom:10px}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tagline{font-size:clamp(16px,2.4vw,22px);color:var(--muted);max-width:720px;margin:18px auto 0}
+  .quote-hero{margin-top:40px;font-size:clamp(18px,3vw,28px);font-weight:700}
+  .quote-hero .sub{display:block;font-size:15px;color:var(--dim);font-weight:400;margin-top:10px;letter-spacing:.05em}
+  /* sections */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .eyebrow{color:var(--acc);font-size:13px;letter-spacing:.22em;font-weight:700;margin-bottom:12px}
+  h2{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:14px;line-height:1.25}
+  .lead{color:var(--muted);font-size:17px;max-width:760px;margin-bottom:36px}
+  /* layer stack */
+  .stack{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+  .layer{position:relative;border:1px solid var(--line);border-radius:14px;padding:18px 22px;
+         background:var(--card);display:flex;align-items:center;gap:18px;transition:.25s}
+  .layer:hover{transform:translateX(6px);border-color:var(--acc)}
+  .layer .num{font-size:22px;font-weight:850;min-width:64px;color:var(--dim)}
+  .layer .body h4{font-size:17px;margin-bottom:2px}
+  .layer .body p{color:var(--muted);font-size:14px}
+  .layer.hi{background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(45,212,191,.14));
+            border-color:var(--acc);box-shadow:0 0 0 1px rgba(124,92,255,.3),0 18px 50px -20px rgba(124,92,255,.6)}
+  .layer.hi .num{color:#fff}
+  .layer.hi .tag{margin-left:auto;background:var(--grad);color:#0a0c14;font-weight:800;
+                 padding:6px 14px;border-radius:999px;font-size:13px;white-space:nowrap}
+  /* module cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .mod{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--card);transition:.25s}
+  .mod:hover{border-color:var(--acc2);transform:translateY(-4px)}
+  .mod .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;
+            background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(45,212,191,.18));margin-bottom:16px}
+  .mod h3{font-size:19px;margin-bottom:4px}
+  .mod .en{color:var(--dim);font-size:13px;letter-spacing:.05em;margin-bottom:14px}
+  .mod ul{list-style:none}
+  .mod li{color:var(--muted);font-size:14.5px;padding:5px 0 5px 20px;position:relative}
+  .mod li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;border-radius:2px;background:var(--acc2)}
+  .mod .verdict{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:13.5px}
+  .mod .verdict b{color:var(--gold)}
+  /* tables */
+  .tbl{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;border:1px solid var(--line);font-size:15px}
+  .tbl th,.tbl td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl th{background:var(--card2);color:var(--txt);font-weight:700;font-size:14px}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl tr:hover td{background:rgba(124,92,255,.05)}
+  .tbl .hl{background:rgba(45,212,191,.08)}
+  .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:700}
+  .p-green{background:rgba(67,209,122,.15);color:var(--green)}
+  .p-gold{background:rgba(245,185,66,.15);color:var(--gold)}
+  .p-red{background:rgba(255,107,107,.15);color:var(--red)}
+  .p-acc{background:rgba(124,92,255,.18);color:#b9a8ff}
+  /* roadmap */
+  .road{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:10px}
+  .step{border:1px solid var(--line);padding:24px;background:var(--card);position:relative}
+  .step:first-child{border-radius:14px 0 0 14px}
+  .step:last-child{border-radius:0 14px 14px 0}
+  .step .ph{font-size:13px;color:var(--acc2);letter-spacing:.1em;font-weight:700}
+  .step .t{font-size:13px;color:var(--dim);margin:4px 0 12px}
+  .step h4{font-size:16px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:14px}
+  .step .dot{position:absolute;top:-7px;left:24px;width:13px;height:13px;border-radius:50%;background:var(--grad)}
+  /* value boxes */
+  .vbox{border-left:3px solid var(--acc);background:var(--card);padding:20px 24px;border-radius:0 12px 12px 0;margin-bottom:14px}
+  .vbox h4{font-size:16px;margin-bottom:6px;color:var(--acc2)}
+  .vbox p{color:var(--muted);font-size:15px}
+  /* dual narrative */
+  .dual{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .dual .col{border:1px solid var(--line);border-radius:16px;padding:28px;background:var(--card)}
+  .dual .col.story{background:linear-gradient(160deg,rgba(124,92,255,.16),transparent)}
+  .dual .col.deal{background:linear-gradient(160deg,rgba(45,212,191,.14),transparent)}
+  .dual .col .k{font-size:13px;letter-spacing:.16em;font-weight:700;margin-bottom:12px}
+  .dual .col.story .k{color:#b9a8ff}
+  .dual .col.deal .k{color:var(--acc2)}
+  .dual .col .big{font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.5}
+  .dual .col p{color:var(--muted);font-size:14.5px}
+  /* footer */
+  footer{padding:60px 0;text-align:center;border-top:1px solid var(--line);color:var(--dim);font-size:14px}
+  .disc{max-width:760px;margin:24px auto 0;font-size:13px;color:var(--dim);
+        border:1px dashed var(--line);border-radius:12px;padding:18px;text-align:left;line-height:1.7}
+  .note{font-size:13px;color:var(--dim);margin-top:8px}
+  @media(max-width:760px){
+    .dual{grid-template-columns:1fr}
+    .road{grid-template-columns:1fr}
+    .step{border-radius:14px!important;margin-bottom:-1px}
+    .layer{flex-wrap:wrap}
+    .layer.hi .tag{margin-left:0}
+    .tbl{font-size:13px;display:block;overflow-x:auto;white-space:nowrap}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav><div class="wrap">
+  <div class="brand"><span>神公司</span> ／ Shen Co.</div>
+  <a href="#pos">定位</a>
+  <a href="#stack">十二層</a>
+  <a href="#modules">四大模組</a>
+  <a href="#verdict">層級判決</a>
+  <a href="#tech">技術架構</a>
+  <a href="#road">進場路線</a>
+  <a href="#dual">故事 vs 合約</a>
+</div></nav>
+
+<!-- ============ HERO ============ -->
+<header><div class="wrap">
+  <div class="badge">AI 生態經濟 ｜ 第 11.5 層 ENABLER</div>
+  <h1>我們不做 AI 公司，<br><span class="g">我們讓 AI 公司誕生。</span></h1>
+  <p class="tagline">神公司是 AI Native Company 的作業系統 —— 讓任何組織在數週內、而非數年內，成為一家 AI 原生企業。</p>
+  <div class="quote-hero">真正的價值不在於做出一個 Agent，<br>而是讓一百萬個 Agent 可以被創造、管理、交易與獲利。
+    <span class="sub">Operating System for AI-Native Enterprises</span>
+  </div>
+</div></header>
+
+<!-- ============ 定位 ============ -->
+<section id="pos"><div class="wrap">
+  <div class="eyebrow">背景與定位</div>
+  <h2>站在第 11.5 層，不與客戶搶生意</h2>
+  <p class="lead">AI 產業鏈正從底層的能源、晶片、模型，往上長出 Agent、原生部門、原生公司。模型與雲端有人做，垂直應用也有人做，但中間「把模型能力組裝成可營運的組織單元」這件事，目前各家公司只能各自土法煉鋼。神公司選擇成為這個水平的 Enabler 層。</p>
+
+  <div class="vbox"><h4>不直接競爭</h4><p>不去當「一家」AI 原生公司，而是讓「所有」想成為第十一層的組織都更容易達成 —— 市場天花板因此被打開。</p></div>
+  <div class="vbox"><h4>可複利的資產</h4><p>每服務一家客戶，沉澱的轉型方法論、模組與資料，都讓下一家客戶導入更快。這是垂直應用拿不到的複利。</p></div>
+  <div class="vbox"><h4>類比 Enabler</h4><p>NVIDIA 不是 Agent 公司、OpenAI 不直接經營多數原生企業、AWS 不經營客戶的業務 —— 但它們都是不可或缺的 Enabler。</p></div>
+</div></section>
+
+<!-- ============ 十二層架構 ============ -->
+<section id="stack"><div class="wrap">
+  <div class="eyebrow">林超 AI 十二層架構</div>
+  <h2>我們把自己插在第 11 層之上</h2>
+  <p class="lead">第 9 至 11 層是被 enable 的對象；第 11.5 層是讓它們得以誕生、運作、擴張的賦能者。</p>
+  <div class="stack">
+    <div class="layer hi">
+      <div class="num">11.5</div>
+      <div class="body"><h4>AI Native Enterprise Enabler — 神公司</h4><p>賦能層：提供基礎設施與作業系統，服務第 9／10／11 層</p></div>
+      <div class="tag">★ 我們在這裡</div>
+    </div>
+    <div class="layer"><div class="num">11</div><div class="body"><h4>AI Native Company</h4><p>AI 原生企業（單一企業集團）</p></div></div>
+    <div class="layer"><div class="num">10</div><div class="body"><h4>AI Native Department</h4><p>AI 原生部門（單一企業）</p></div></div>
+    <div class="layer"><div class="num">9</div><div class="body"><h4>AI Agent</h4><p>個人或企業代理人（單一應用）</p></div></div>
+    <div class="layer" style="opacity:.55"><div class="num">…</div><div class="body"><h4>模型 / 算力 / 晶片 / 能源</h4><p>第 1–8 層底層基礎設施（模型廠、雲廠、硬體）</p></div></div>
+  </div>
+</div></section>
+
+<!-- ============ 四大模組 ============ -->
+<section id="modules"><div class="wrap">
+  <div class="eyebrow">四大功能模組</div>
+  <h2>讓一百萬個 Agent 被創造、管理、交易與獲利</h2>
+  <p class="lead">四層堆疊由下而上構成完整的 Enabler 生態。每一格都附上「今天值不值得做」的誠實判決。</p>
+  <div class="grid">
+    <div class="mod">
+      <div class="ico">🔌</div>
+      <h3>L1 · Agent Infrastructure</h3>
+      <div class="en">代理基礎設施</div>
+      <ul><li>Agent 管理平台</li><li>Agent 協作框架</li><li>Agent 身份認證</li></ul>
+      <div class="verdict"><b>判決：入口，不是護城河。</b> 用它獲客，別指望靠它賺錢 —— 易被模型廠 / 雲廠商品化。</div>
+    </div>
+    <div class="mod">
+      <div class="ico">🧭</div>
+      <h3>L2 · Workforce OS</h3>
+      <div class="en">AI 員工作業系統</div>
+      <ul><li>AI 員工管理</li><li>AI 部門治理</li><li>AI 績效追蹤</li></ul>
+      <div class="verdict"><b>判決：現金流主戰場。</b> 賣的是「信任與可歸責」—— 第一張合約最可能從這裡簽出來。</div>
+    </div>
+    <div class="mod">
+      <div class="ico">🏛️</div>
+      <h3>L3 · Company Stack</h3>
+      <div class="en">AI 原生公司堆疊</div>
+      <ul><li>AI Native ERP</li><li>AI Native CRM</li><li>AI Native Knowledge Base</li></ul>
+      <div class="verdict"><b>判決：資料沉澱層。</b> 長期價值高、轉換成本是雙面刃；靠 L2 滲透後再往這層擴張。</div>
+    </div>
+    <div class="mod">
+      <div class="ico">⚖️</div>
+      <h3>L4 · Economy Layer</h3>
+      <div class="en">代理經濟層</div>
+      <ul><li>Agent 與 Agent 交易</li><li>Agent 與人類交易</li><li>Agent Marketplace</li><li>Reputation System</li></ul>
+      <div class="verdict"><b>判決：賭注，也是真護城河。</b> 今天沒人付錢，未來贏家通吃 —— 標清楚它是彩券，不是今年營收。</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ 層級判決表 ============ -->
+<section id="verdict"><div class="wrap">
+  <div class="eyebrow">四格拷問 · 三問全過？</div>
+  <h2>誰今天付錢、痛不痛、為什麼非你不可</h2>
+  <p class="lead">把每一層放進同一把尺：今天誰付錢、痛度多高、護城河守不守得住 —— 浮出一個很清楚的形狀。</p>
+  <table class="tbl">
+    <thead><tr><th>層</th><th>今天誰付錢</th><th>痛度</th><th>三問</th><th>角色</th></tr></thead>
+    <tbody>
+      <tr class="hl">
+        <td><b>L2</b> Workforce OS</td>
+        <td>已導入 AI、被老闆問「有沒有在控制範圍內」的中型主管</td>
+        <td><span class="pill p-green">高 · 現在</span></td>
+        <td><span class="pill p-green">✅ 全過</span></td>
+        <td>開場 + 現金流</td>
+      </tr>
+      <tr>
+        <td><b>L3</b> Company Stack</td>
+        <td>想「整套換掉」而非外掛 AI 的公司</td>
+        <td><span class="pill p-gold">高 · 門檻高</span></td>
+        <td><span class="pill p-gold">△ 痛夠難進</span></td>
+        <td>L2 滲透後的擴張</td>
+      </tr>
+      <tr>
+        <td><b>L1</b> Agent Infra</td>
+        <td>已在跑多 Agent、開始覺得「管不動」的技術團隊</td>
+        <td><span class="pill p-gold">中 · 明天</span></td>
+        <td><span class="pill p-gold">△ 易商品化</span></td>
+        <td>獲客入口，不賺錢</td>
+      </tr>
+      <tr>
+        <td><b>L4</b> Economy Layer</td>
+        <td>今天沒人 —— Agent 對 Agent 經濟尚未發生</td>
+        <td><span class="pill p-red">零 · 未來極高</span></td>
+        <td><span class="pill p-red">❌ 今天無人</span></td>
+        <td>願景敘事 + 長期賭注</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">結論：<b style="color:var(--acc2)">L2 是你拿去簽第一張合約的產品，L4 是你拿去募資的故事。</b> 兩個版本都要有，而且你自己清楚哪句是哪句。</p>
+</div></section>
+
+<!-- ============ 網路效應 ============ -->
+<section id="scale"><div class="wrap">
+  <div class="eyebrow">商業模式與網路效應</div>
+  <h2>11.5 層的客戶數是「所有企業」</h2>
+  <p class="lead">層級愈往上單一，規模愈受限；唯有水平 Enabler 的潛在客戶是整個市場。</p>
+  <table class="tbl">
+    <thead><tr><th>層級</th><th>客戶數</th><th>規模性</th></tr></thead>
+    <tbody>
+      <tr><td>AI Agent</td><td>單一應用</td><td><span class="pill p-red">有限</span></td></tr>
+      <tr><td>AI Native Department</td><td>單一企業</td><td><span class="pill p-gold">中等</span></td></tr>
+      <tr><td>AI Native Company</td><td>單一企業集團</td><td><span class="pill p-gold">中等</span></td></tr>
+      <tr class="hl"><td><b>11.5 Enabler</b></td><td><b>所有企業</b></td><td><span class="pill p-green">極大</span></td></tr>
+    </tbody>
+  </table>
+  <p class="note">收費為混合模式：平台訂閱（SaaS）＋ 使用量計費 ＋ 導入服務 ＋ 生態抽成 —— 對應客戶從試用到深度依賴的旅程。</p>
+</div></section>
+
+<!-- ============ 技術架構 ============ -->
+<section id="tech"><div class="wrap">
+  <div class="eyebrow">技術架構</div>
+  <h2>平台四層，治理層是與一般自動化工具最大的差異</h2>
+  <p class="lead">當 Agent 真的替公司行動，可監督、可回溯、可踩煞車，是企業敢從 PoC 走向正式上線的前提，也是對外的信任賣點。</p>
+  <table class="tbl">
+    <thead><tr><th>層</th><th>名稱</th><th>職責</th></tr></thead>
+    <tbody>
+      <tr><td><b>L4</b></td><td>方法論與模組層</td><td>把產業轉型劇本封裝成可安裝模組（招商、投放、交易…）</td></tr>
+      <tr class="hl"><td><b>L3</b></td><td>治理與信任層 ★</td><td>權限、稽核軌跡、人機審批、煞車與回溯機制</td></tr>
+      <tr><td><b>L2</b></td><td>Agent 編排引擎</td><td>定義、組合、排程、監控多個 Agent 協作完成任務</td></tr>
+      <tr><td><b>L1</b></td><td>底層橋接層</td><td>對接多家模型與雲，抽象成統一介面，可熱切換</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin:34px 0 6px;font-size:18px">與既有實作的銜接（現成樣板素材）</h3>
+  <div class="grid">
+    <div class="mod"><h3 style="font-size:17px">AdPilot</h3><div class="en">Node.js + Meta Marketing API</div><p style="color:var(--muted);font-size:14px">自動化規則 + 告警，可重構為 L4「廣告投放模組」與 L2 編排範例。</p></div>
+    <div class="mod"><h3 style="font-size:17px">DigiChef 招商系統</h3><div class="en">餐飲招商路線</div><p style="color:var(--muted);font-size:14px">可萃取為「招商部門模組」樣板。</p></div>
+    <div class="mod"><h3 style="font-size:17px">二手交易平台</h3><div class="en">自動上架 / 去背 / 文案</div><p style="color:var(--muted);font-size:14px">是「電商營運模組」的現成素材。</p></div>
+  </div>
+  <p class="note">這些不是直接變產品，而是先當成證明「Enabler 模式可複製」的樣板案例。</p>
+</div></section>
+
+<!-- ============ 進場路線 ============ -->
+<section id="road"><div class="wrap">
+  <div class="eyebrow">進場策略與里程碑</div>
+  <h2>先做通用核心，用一個最熟的垂直樣板證明它跑得通</h2>
+  <p class="lead">避免一開始就喊「同時 enable 三層、覆蓋所有產業」而失焦。先把價值講清楚，再水平展開。</p>
+  <div class="road">
+    <div class="step"><div class="dot"></div><div class="ph">第 0 階段 · 地基</div><div class="t">0–3 個月</div><h4>核心平台雛形 + 治理層 MVP</h4><p>跑通一個 Agent 編排 + 稽核的閉環。</p></div>
+    <div class="step"><div class="dot"></div><div class="ph">第 1 階段 · 樣板</div><div class="t">3–9 個月</div><h4>能收錢的垂直案例</h4><p>1–2 家燈塔客戶上線，沉澱第一份導入 SOP。</p></div>
+    <div class="step"><div class="dot"></div><div class="ph">第 2 階段 · 複製</div><div class="t">9–18 個月</div><h4>樣板抽象為通用模組</h4><p>模組市集雛形 + 首批種子合夥商成交。</p></div>
+    <div class="step"><div class="dot"></div><div class="ph">第 3 階段 · 生態</div><div class="t">18 個月+</div><h4>合夥商網路自我增長</h4><p>收入結構由服務轉向訂閱 + 抽成。</p></div>
+  </div>
+</div></section>
+
+<!-- ============ 護城河 / 風險 ============ -->
+<section id="moat"><div class="wrap">
+  <div class="eyebrow">護城河 vs 上下夾擊</div>
+  <h2>不押純技術，押三件會隨時間變厚的資產</h2>
+  <p class="lead">11.5 層的風險是上下夾擊：上面的模型廠／雲廠可能向下整合，下面的客戶學會後可能自己做。</p>
+  <div class="grid">
+    <div class="mod"><div class="ico">📚</div><h3 style="font-size:17px">轉型 Know-how</h3><p style="color:var(--muted);font-size:14px">跨案累積的組織轉型方法論，愈做愈深。</p></div>
+    <div class="mod"><div class="ico">🕸️</div><h3 style="font-size:17px">生態網路效應</h3><p style="color:var(--muted);font-size:14px">合夥商與模組生態，網愈大收入愈大。</p></div>
+    <div class="mod"><div class="ico">📈</div><h3 style="font-size:17px">營運資料飛輪</h3><p style="color:var(--muted);font-size:14px">客戶資料訓練出愈用愈準的編排與最佳化。</p></div>
+  </div>
+  <p class="note">關鍵自保：刻意中立於模型廠與雲廠之上，可橋接多家底層，較不易被任一家向下整合一次吃掉。</p>
+</div></section>
+
+<!-- ============ 雙版本 ============ -->
+<section id="dual"><div class="wrap">
+  <div class="eyebrow">祛除禪機的方法</div>
+  <h2>永遠知道大願景底下，今年要靠哪一格吃飯</h2>
+  <p class="lead">不是不講大願景，而是清楚分開：哪句是拿去募資的故事，哪句是拿去簽合約的產品。</p>
+  <div class="dual">
+    <div class="col story">
+      <div class="k">對外 · 募資版（故事）</div>
+      <div class="big">「我們不做 AI 公司，我們讓 AI 公司誕生。」</div>
+      <p>投資人要聽的是 L4 那個極大想像空間 —— AI Native Enterprise 的作業系統、Agent 經濟的終局贏家。這是上品的願景敘事。</p>
+    </div>
+    <div class="col deal">
+      <div class="k">對內 · 執行版（合約）</div>
+      <div class="big">先動手做、先收錢的，是 L2 的治理與信任層。</div>
+      <p>綁一個你最熟的垂直（餐飲招商或廣告投放）當第一個樣板，把「AI 部門治理」做成具體到能簽約的東西。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ FOOTER ============ -->
+<footer><div class="wrap">
+  <div class="quote-hero" style="margin-top:0">神公司 ／ Operating System for AI-Native Enterprises</div>
+  <div class="disc">
+    <b>關於本頁面的定位：</b>本頁為「願景與事業設計」的視覺化呈現，描述的是一個尚待創立的組織與其目標，並非對既有事實的陳述。所有市場規模、財務數字、時程與里程碑均為基於公開趨勢與假設的「規劃推估」，須在實際執行前以一手資料重新驗證。凡涉及具體人物之角色（含創辦人、顧問、合夥人）皆待當事人同意並以真實近期背景填入後，方可對外使用。
+  </div>
+  <p class="note">版本 v1.0（草案）· 製作日期 2026 年 5 月 · 機密文件，僅供內部與受邀對象閱覽</p>
+</div></footer>
+
+</body>
+</html>
