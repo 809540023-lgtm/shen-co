@@ -19,16 +19,17 @@
                var(--bg);
     color:var(--txt);
     font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",-apple-system,system-ui,sans-serif;
-    line-height:1.75; letter-spacing:.01em; -webkit-font-smoothing:antialiased;
+    line-height:1.8; letter-spacing:.01em; -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  p{color:var(--muted);font-size:16px}
   /* nav */
   nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
       background:rgba(10,12,20,.72);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;gap:20px;height:60px;overflow-x:auto}
+  nav .wrap{display:flex;align-items:center;gap:18px;height:60px;overflow-x:auto}
   nav .brand{font-weight:800;letter-spacing:.04em;white-space:nowrap}
   nav .brand span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  nav a{color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap;transition:.2s}
+  nav a{color:var(--muted);text-decoration:none;font-size:13.5px;white-space:nowrap;transition:.2s}
   nav a:hover{color:var(--txt)}
   /* hero */
   header{padding:90px 0 70px;text-align:center}
@@ -37,20 +38,33 @@
   h1{font-size:clamp(34px,6vw,62px);line-height:1.15;font-weight:850;margin-bottom:10px}
   h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .tagline{font-size:clamp(16px,2.4vw,22px);color:var(--muted);max-width:720px;margin:18px auto 0}
-  .quote-hero{margin-top:40px;font-size:clamp(18px,3vw,28px);font-weight:700}
+  .quote-hero{margin-top:40px;font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--txt)}
   .quote-hero .sub{display:block;font-size:15px;color:var(--dim);font-weight:400;margin-top:10px;letter-spacing:.05em}
   /* sections */
-  section{padding:64px 0;border-top:1px solid var(--line)}
+  section{padding:62px 0;border-top:1px solid var(--line)}
   .eyebrow{color:var(--acc);font-size:13px;letter-spacing:.22em;font-weight:700;margin-bottom:12px}
-  h2{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:14px;line-height:1.25}
-  .lead{color:var(--muted);font-size:17px;max-width:760px;margin-bottom:36px}
+  h2{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:14px;line-height:1.25;color:var(--txt)}
+  h3.sub{font-size:20px;margin:34px 0 10px;color:var(--txt)}
+  .lead{color:var(--muted);font-size:17px;max-width:780px;margin-bottom:32px}
+  .prose p{margin-bottom:16px;max-width:820px}
+  .prose p b{color:var(--txt)}
+  /* stat cards */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:28px 0}
+  .stat{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--card)}
+  .stat .n{font-size:30px;font-weight:850;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
+  .stat .l{color:var(--muted);font-size:14px;margin-top:8px}
+  .stat .src{color:var(--dim);font-size:11.5px;margin-top:6px}
+  /* callout */
+  .callout{border-left:3px solid var(--acc2);background:linear-gradient(120deg,rgba(45,212,191,.08),transparent);
+           padding:18px 24px;border-radius:0 12px 12px 0;margin:22px 0;font-size:15.5px;color:var(--txt)}
+  .callout b{color:var(--acc2)}
   /* layer stack */
   .stack{display:flex;flex-direction:column;gap:10px;margin-top:10px}
   .layer{position:relative;border:1px solid var(--line);border-radius:14px;padding:18px 22px;
          background:var(--card);display:flex;align-items:center;gap:18px;transition:.25s}
   .layer:hover{transform:translateX(6px);border-color:var(--acc)}
   .layer .num{font-size:22px;font-weight:850;min-width:64px;color:var(--dim)}
-  .layer .body h4{font-size:17px;margin-bottom:2px}
+  .layer .body h4{font-size:17px;margin-bottom:2px;color:var(--txt)}
   .layer .body p{color:var(--muted);font-size:14px}
   .layer.hi{background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(45,212,191,.14));
             border-color:var(--acc);box-shadow:0 0 0 1px rgba(124,92,255,.3),0 18px 50px -20px rgba(124,92,255,.6)}
@@ -58,25 +72,26 @@
   .layer.hi .tag{margin-left:auto;background:var(--grad);color:#0a0c14;font-weight:800;
                  padding:6px 14px;border-radius:999px;font-size:13px;white-space:nowrap}
   /* module cards */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:18px}
   .mod{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--card);transition:.25s}
   .mod:hover{border-color:var(--acc2);transform:translateY(-4px)}
   .mod .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;
             background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(45,212,191,.18));margin-bottom:16px}
-  .mod h3{font-size:19px;margin-bottom:4px}
+  .mod h3{font-size:19px;margin-bottom:4px;color:var(--txt)}
   .mod .en{color:var(--dim);font-size:13px;letter-spacing:.05em;margin-bottom:14px}
   .mod ul{list-style:none}
   .mod li{color:var(--muted);font-size:14.5px;padding:5px 0 5px 20px;position:relative}
   .mod li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;border-radius:2px;background:var(--acc2)}
-  .mod .verdict{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:13.5px}
+  .mod .verdict{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--muted)}
   .mod .verdict b{color:var(--gold)}
   /* tables */
-  .tbl{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;border:1px solid var(--line);font-size:15px}
-  .tbl th,.tbl td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;border:1px solid var(--line);font-size:15px;margin-top:6px}
+  .tbl th,.tbl td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted)}
   .tbl th{background:var(--card2);color:var(--txt);font-weight:700;font-size:14px}
   .tbl tr:last-child td{border-bottom:none}
   .tbl tr:hover td{background:rgba(124,92,255,.05)}
   .tbl .hl{background:rgba(45,212,191,.08)}
+  .tbl b{color:var(--txt)}
   .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:700}
   .p-green{background:rgba(67,209,122,.15);color:var(--green)}
   .p-gold{background:rgba(245,185,66,.15);color:var(--gold)}
@@ -89,7 +104,7 @@
   .step:last-child{border-radius:0 14px 14px 0}
   .step .ph{font-size:13px;color:var(--acc2);letter-spacing:.1em;font-weight:700}
   .step .t{font-size:13px;color:var(--dim);margin:4px 0 12px}
-  .step h4{font-size:16px;margin-bottom:8px}
+  .step h4{font-size:16px;margin-bottom:8px;color:var(--txt)}
   .step p{color:var(--muted);font-size:14px}
   .step .dot{position:absolute;top:-7px;left:24px;width:13px;height:13px;border-radius:50%;background:var(--grad)}
   /* value boxes */
@@ -104,13 +119,25 @@
   .dual .col .k{font-size:13px;letter-spacing:.16em;font-weight:700;margin-bottom:12px}
   .dual .col.story .k{color:#b9a8ff}
   .dual .col.deal .k{color:var(--acc2)}
-  .dual .col .big{font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.5}
+  .dual .col .big{font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.5;color:var(--txt)}
   .dual .col p{color:var(--muted);font-size:14.5px}
+  /* team */
+  .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .person{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--card)}
+  .person .role{font-size:13px;color:var(--acc2);letter-spacing:.08em;font-weight:700;margin-bottom:6px}
+  .person h4{font-size:20px;color:var(--txt);margin-bottom:4px}
+  .person .tbc{display:inline-block;font-size:11.5px;font-weight:700;color:var(--gold);background:rgba(245,185,66,.15);padding:2px 9px;border-radius:999px;margin-bottom:12px}
+  .person p{font-size:14.5px;color:var(--muted)}
+  /* sources */
+  .sources{font-size:13.5px;color:var(--dim);line-height:2}
+  .sources a{color:#9fb0d8;text-decoration:none;border-bottom:1px solid var(--line)}
+  .sources a:hover{color:var(--acc2)}
   /* footer */
   footer{padding:60px 0;text-align:center;border-top:1px solid var(--line);color:var(--dim);font-size:14px}
-  .disc{max-width:760px;margin:24px auto 0;font-size:13px;color:var(--dim);
+  .disc{max-width:780px;margin:24px auto 0;font-size:13px;color:var(--dim);
         border:1px dashed var(--line);border-radius:12px;padding:18px;text-align:left;line-height:1.7}
-  .note{font-size:13px;color:var(--dim);margin-top:8px}
+  .note{font-size:13px;color:var(--dim);margin-top:10px}
+  sup{color:var(--acc2);font-size:11px;font-weight:700}
   @media(max-width:760px){
     .dual{grid-template-columns:1fr}
     .road{grid-template-columns:1fr}
@@ -126,13 +153,18 @@
 <!-- ============ NAV ============ -->
 <nav><div class="wrap">
   <div class="brand"><span>神公司</span> ／ Shen Co.</div>
+  <a href="#summary">摘要</a>
+  <a href="#why">市場時機</a>
   <a href="#pos">定位</a>
   <a href="#stack">十二層</a>
   <a href="#modules">四大模組</a>
   <a href="#verdict">層級判決</a>
+  <a href="#biz">商業模式</a>
   <a href="#tech">技術架構</a>
   <a href="#road">進場路線</a>
-  <a href="#dual">故事 vs 合約</a>
+  <a href="#rwa">RWA × L4</a>
+  <a href="#team">核心團隊</a>
+  <a href="#risk">風險</a>
 </div></nav>
 
 <!-- ============ HERO ============ -->
@@ -145,22 +177,49 @@
   </div>
 </div></header>
 
+<!-- ============ 執行摘要 ============ -->
+<section id="summary"><div class="wrap">
+  <div class="eyebrow">執行摘要</div>
+  <h2>把模型能力組裝成「可營運的組織」</h2>
+  <div class="prose">
+    <p>AI 產業鏈正從底層的能源、晶片、模型，往上長出「AI Agent（第九層）」「AI 原生部門（第十層）」與「AI 原生公司（第十一層）」。底層的模型與雲端有人做，上層的垂直應用也有人做，但中間「把模型能力組裝成一個能 24 小時運作、可被管理、可被稽核的組織單元」這件事，目前各家公司只能各自土法煉鋼。</p>
+    <p>神公司定位於產業鏈的 <b>11.5 層 —— 一個水平的 Enabler 層</b>。我們不直接去當某一家 AI 原生公司（那只會變成一家公司），而是提供一套<b>營運作業系統（Operating System for AI-Native Companies）</b>，讓任何想成為第十一層的組織，都能以更低成本、更快速度完成轉型。</p>
+    <p>一句話定位：<b>我們賣鏟子給挖金礦的人，而且賣的是整套採礦作業系統。</b></p>
+  </div>
+  <div class="callout"><b>價值主張：</b>讓任何組織在「數週內、而非數年內」，成為一家 AI 原生公司的營運作業系統。對外是募資的願景故事，對內是能簽下第一張合約的具體產品 —— 兩個版本都要有，而且永遠清楚哪句是哪句。</div>
+</div></section>
+
+<!-- ============ 市場時機 ============ -->
+<section id="why"><div class="wrap">
+  <div class="eyebrow">市場時機 · WHY NOW</div>
+  <h2>2026 是 Agent 從「能跑」走向「可被治理」的分水嶺</h2>
+  <p class="lead">這一格的判斷不是憑感覺，而是有外部產業數據支撐：市場的痛點正好從「做不做得出 Agent」轉移到「敢不敢讓它上線」—— 而那正是神公司主打的位置。</p>
+  <div class="stats">
+    <div class="stat"><div class="n">79% → 11%</div><div class="l">企業說已導入 AI Agent，但實際跑在正式環境的只有 11%</div><div class="src">來源：企業 Agentic AI 調查 2026</div></div>
+    <div class="stat"><div class="n">$10.8B</div><div class="l">2026 年 Agent 編排／治理平台市場規模（2025 為 $7.6B）</div><div class="src">來源：Agentic AI 市場統計 2026</div></div>
+    <div class="stat"><div class="n">40%</div><div class="l">Gartner：到 2026 年底，四成企業應用將內建任務型 AI Agent</div><div class="src">來源：Gartner</div></div>
+    <div class="stat"><div class="n">&gt;40%</div><div class="l">Gartner：超過四成 agentic AI 專案恐在 2027 前被取消，主因是價值不清、成本攀升、治理薄弱</div><div class="src">來源：Gartner</div></div>
+  </div>
+  <div class="prose">
+    <p>三個結論直接落到神公司的策略上：第一，<b>需求已經出現</b> —— 四成企業應用即將內建 Agent，市場不是「明天的痛」而是「現在的痛」。第二，<b>瓶頸在治理</b> —— 大量專案卡在 PoC、甚至被取消，原因不是模型不夠強，而是缺乏可監督、可回溯、可踩煞車的治理機制。第三，<b>這正是 11.5 層的切入點</b>：與其再做一個 Agent，不如做那層讓 Agent「敢上線」的信任基礎設施。</p>
+  </div>
+</div></section>
+
 <!-- ============ 定位 ============ -->
 <section id="pos"><div class="wrap">
   <div class="eyebrow">背景與定位</div>
   <h2>站在第 11.5 層，不與客戶搶生意</h2>
-  <p class="lead">AI 產業鏈正從底層的能源、晶片、模型，往上長出 Agent、原生部門、原生公司。模型與雲端有人做，垂直應用也有人做，但中間「把模型能力組裝成可營運的組織單元」這件事，目前各家公司只能各自土法煉鋼。神公司選擇成為這個水平的 Enabler 層。</p>
-
-  <div class="vbox"><h4>不直接競爭</h4><p>不去當「一家」AI 原生公司，而是讓「所有」想成為第十一層的組織都更容易達成 —— 市場天花板因此被打開。</p></div>
-  <div class="vbox"><h4>可複利的資產</h4><p>每服務一家客戶，沉澱的轉型方法論、模組與資料，都讓下一家客戶導入更快。這是垂直應用拿不到的複利。</p></div>
-  <div class="vbox"><h4>類比 Enabler</h4><p>NVIDIA 不是 Agent 公司、OpenAI 不直接經營多數原生企業、AWS 不經營客戶的業務 —— 但它們都是不可或缺的 Enabler。</p></div>
+  <p class="lead">選擇水平 Enabler 層、而非垂直應用層，有三個結構性理由。這三點同時是市場天花板、複利效應與護城河的來源。</p>
+  <div class="vbox"><h4>不與客戶搶生意</h4><p>我們讓「所有」想成為第十一層的人都更容易達成，而不是自己只當「一家」第十一層公司 —— 市場天花板因此被打開。類比：NVIDIA 不是 Agent 公司、OpenAI 不直接經營多數原生企業、AWS 不經營客戶的業務，但它們都是不可或缺的 Enabler。</p></div>
+  <div class="vbox"><h4>可複利的資產</h4><p>每服務一家客戶，沉澱下來的轉型方法論、模組與資料，都會讓下一家客戶的導入更快 —— 這是垂直應用拿不到的複利。</p></div>
+  <div class="vbox"><h4>與既有實作高度吻合</h4><p>AdPilot（讓人用 Agent 管廣告）、DigiChef 招商系統、二手交易平台，本質上都是「把 AI／自動化能力封裝成可營運單元」的練習，可直接轉化為樣板案例。</p></div>
 </div></section>
 
 <!-- ============ 十二層架構 ============ -->
 <section id="stack"><div class="wrap">
-  <div class="eyebrow">林超 AI 十二層架構</div>
+  <div class="eyebrow">AI 十二層架構</div>
   <h2>我們把自己插在第 11 層之上</h2>
-  <p class="lead">第 9 至 11 層是被 enable 的對象；第 11.5 層是讓它們得以誕生、運作、擴張的賦能者。</p>
+  <p class="lead">第 9 至 11 層是被 enable 的對象；第 11.5 層是讓它們得以誕生、運作、擴張的賦能者。底層的能源、晶片、模型、應用，正是 NVIDIA 黃仁勳所比喻的 AI「五層蛋糕」<sup>※</sup>，已有巨頭盤據；真正的空白在中間那層「組織化」。</p>
   <div class="stack">
     <div class="layer hi">
       <div class="num">11.5</div>
@@ -170,43 +229,44 @@
     <div class="layer"><div class="num">11</div><div class="body"><h4>AI Native Company</h4><p>AI 原生企業（單一企業集團）</p></div></div>
     <div class="layer"><div class="num">10</div><div class="body"><h4>AI Native Department</h4><p>AI 原生部門（單一企業）</p></div></div>
     <div class="layer"><div class="num">9</div><div class="body"><h4>AI Agent</h4><p>個人或企業代理人（單一應用）</p></div></div>
-    <div class="layer" style="opacity:.55"><div class="num">…</div><div class="body"><h4>模型 / 算力 / 晶片 / 能源</h4><p>第 1–8 層底層基礎設施（模型廠、雲廠、硬體）</p></div></div>
+    <div class="layer" style="opacity:.55"><div class="num">1–8</div><div class="body"><h4>模型 / 算力 / 晶片 / 能源</h4><p>底層基礎設施（模型廠、雲廠、硬體）—— NVIDIA「五層蛋糕」所在</p></div></div>
   </div>
+  <p class="note">※ 黃仁勳將 AI 產業比喻為「能源、晶片、基礎設施、模型、應用」五層結構；神公司的 11.5 層位於「應用」與「整家公司」之間，是把單點應用組裝成整個組織的那一層。</p>
 </div></section>
 
 <!-- ============ 四大模組 ============ -->
 <section id="modules"><div class="wrap">
   <div class="eyebrow">四大功能模組</div>
   <h2>讓一百萬個 Agent 被創造、管理、交易與獲利</h2>
-  <p class="lead">四層堆疊由下而上構成完整的 Enabler 生態。每一格都附上「今天值不值得做」的誠實判決。</p>
+  <p class="lead">四層堆疊由下而上構成完整的 Enabler 生態。每一格都附上「今天值不值得做」的誠實判決 —— 這是把禪機榨乾、分清楚故事與合約的關鍵。</p>
   <div class="grid">
     <div class="mod">
       <div class="ico">🔌</div>
       <h3>L1 · Agent Infrastructure</h3>
       <div class="en">代理基礎設施</div>
       <ul><li>Agent 管理平台</li><li>Agent 協作框架</li><li>Agent 身份認證</li></ul>
-      <div class="verdict"><b>判決：入口，不是護城河。</b> 用它獲客，別指望靠它賺錢 —— 易被模型廠 / 雲廠商品化。</div>
+      <div class="verdict"><b>判決：入口，不是護城河。</b> 離底層最近，模型廠 / 雲廠都在自己往上長，半年後可能變成它們的免費附帶功能。用它獲客，別指望靠它賺錢。</div>
     </div>
     <div class="mod">
       <div class="ico">🧭</div>
       <h3>L2 · Workforce OS</h3>
       <div class="en">AI 員工作業系統</div>
       <ul><li>AI 員工管理</li><li>AI 部門治理</li><li>AI 績效追蹤</li></ul>
-      <div class="verdict"><b>判決：現金流主戰場。</b> 賣的是「信任與可歸責」—— 第一張合約最可能從這裡簽出來。</div>
+      <div class="verdict"><b>判決：現金流主戰場。</b> 賣的不是技術，是「信任與可歸責」—— 正好對應市場「79% 導入、僅 11% 上線」的治理斷層。第一張合約最可能從這裡簽出來。</div>
     </div>
     <div class="mod">
       <div class="ico">🏛️</div>
       <h3>L3 · Company Stack</h3>
       <div class="en">AI 原生公司堆疊</div>
       <ul><li>AI Native ERP</li><li>AI Native CRM</li><li>AI Native Knowledge Base</li></ul>
-      <div class="verdict"><b>判決：資料沉澱層。</b> 長期價值高、轉換成本是雙面刃；靠 L2 滲透後再往這層擴張。</div>
+      <div class="verdict"><b>判決：資料沉澱層。</b> 長期價值高，但換 ERP/CRM 是傷筋動骨、信任門檻極高、銷售週期極長。靠 L2 先進去，再慢慢往這層滲透。</div>
     </div>
     <div class="mod">
       <div class="ico">⚖️</div>
       <h3>L4 · Economy Layer</h3>
       <div class="en">代理經濟層</div>
       <ul><li>Agent 與 Agent 交易</li><li>Agent 與人類交易</li><li>Agent Marketplace</li><li>Reputation System</li></ul>
-      <div class="verdict"><b>判決：賭注，也是真護城河。</b> 今天沒人付錢，未來贏家通吃 —— 標清楚它是彩券，不是今年營收。</div>
+      <div class="verdict"><b>判決：賭注，也是真護城河。</b> 今天幾乎沒人付錢，但若 Agent 經濟到來、而你先聚集了 Agent 密度，網路效應會讓你成為終局贏家。標清楚它是彩券。</div>
     </div>
   </div>
 </div></section>
@@ -242,88 +302,16 @@
       </tr>
       <tr>
         <td><b>L4</b> Economy Layer</td>
-        <td>今天沒人 —— Agent 對 Agent 經濟尚未發生</td>
+        <td>今天沒人 —— Agent 對 Agent 經濟尚未真的發生</td>
         <td><span class="pill p-red">零 · 未來極高</span></td>
         <td><span class="pill p-red">❌ 今天無人</span></td>
         <td>願景敘事 + 長期賭注</td>
       </tr>
     </tbody>
   </table>
-  <p class="note">結論：<b style="color:var(--acc2)">L2 是你拿去簽第一張合約的產品，L4 是你拿去募資的故事。</b> 兩個版本都要有，而且你自己清楚哪句是哪句。</p>
-</div></section>
+  <div class="callout">結論：<b>L2 是你拿去簽第一張合約的產品，L4 是你拿去募資的故事。</b> 兩個版本都要有，而且你自己清楚哪句是哪句 —— 這就是祛除禪機的方法：不是不講大願景，而是永遠知道大願景底下今年要靠哪一格吃飯。</div>
 
-<!-- ============ 網路效應 ============ -->
-<section id="scale"><div class="wrap">
-  <div class="eyebrow">商業模式與網路效應</div>
-  <h2>11.5 層的客戶數是「所有企業」</h2>
-  <p class="lead">層級愈往上單一，規模愈受限；唯有水平 Enabler 的潛在客戶是整個市場。</p>
-  <table class="tbl">
-    <thead><tr><th>層級</th><th>客戶數</th><th>規模性</th></tr></thead>
-    <tbody>
-      <tr><td>AI Agent</td><td>單一應用</td><td><span class="pill p-red">有限</span></td></tr>
-      <tr><td>AI Native Department</td><td>單一企業</td><td><span class="pill p-gold">中等</span></td></tr>
-      <tr><td>AI Native Company</td><td>單一企業集團</td><td><span class="pill p-gold">中等</span></td></tr>
-      <tr class="hl"><td><b>11.5 Enabler</b></td><td><b>所有企業</b></td><td><span class="pill p-green">極大</span></td></tr>
-    </tbody>
-  </table>
-  <p class="note">收費為混合模式：平台訂閱（SaaS）＋ 使用量計費 ＋ 導入服務 ＋ 生態抽成 —— 對應客戶從試用到深度依賴的旅程。</p>
-</div></section>
-
-<!-- ============ 技術架構 ============ -->
-<section id="tech"><div class="wrap">
-  <div class="eyebrow">技術架構</div>
-  <h2>平台四層，治理層是與一般自動化工具最大的差異</h2>
-  <p class="lead">當 Agent 真的替公司行動，可監督、可回溯、可踩煞車，是企業敢從 PoC 走向正式上線的前提，也是對外的信任賣點。</p>
-  <table class="tbl">
-    <thead><tr><th>層</th><th>名稱</th><th>職責</th></tr></thead>
-    <tbody>
-      <tr><td><b>L4</b></td><td>方法論與模組層</td><td>把產業轉型劇本封裝成可安裝模組（招商、投放、交易…）</td></tr>
-      <tr class="hl"><td><b>L3</b></td><td>治理與信任層 ★</td><td>權限、稽核軌跡、人機審批、煞車與回溯機制</td></tr>
-      <tr><td><b>L2</b></td><td>Agent 編排引擎</td><td>定義、組合、排程、監控多個 Agent 協作完成任務</td></tr>
-      <tr><td><b>L1</b></td><td>底層橋接層</td><td>對接多家模型與雲，抽象成統一介面，可熱切換</td></tr>
-    </tbody>
-  </table>
-
-  <h3 style="margin:34px 0 6px;font-size:18px">與既有實作的銜接（現成樣板素材）</h3>
-  <div class="grid">
-    <div class="mod"><h3 style="font-size:17px">AdPilot</h3><div class="en">Node.js + Meta Marketing API</div><p style="color:var(--muted);font-size:14px">自動化規則 + 告警，可重構為 L4「廣告投放模組」與 L2 編排範例。</p></div>
-    <div class="mod"><h3 style="font-size:17px">DigiChef 招商系統</h3><div class="en">餐飲招商路線</div><p style="color:var(--muted);font-size:14px">可萃取為「招商部門模組」樣板。</p></div>
-    <div class="mod"><h3 style="font-size:17px">二手交易平台</h3><div class="en">自動上架 / 去背 / 文案</div><p style="color:var(--muted);font-size:14px">是「電商營運模組」的現成素材。</p></div>
-  </div>
-  <p class="note">這些不是直接變產品，而是先當成證明「Enabler 模式可複製」的樣板案例。</p>
-</div></section>
-
-<!-- ============ 進場路線 ============ -->
-<section id="road"><div class="wrap">
-  <div class="eyebrow">進場策略與里程碑</div>
-  <h2>先做通用核心，用一個最熟的垂直樣板證明它跑得通</h2>
-  <p class="lead">避免一開始就喊「同時 enable 三層、覆蓋所有產業」而失焦。先把價值講清楚，再水平展開。</p>
-  <div class="road">
-    <div class="step"><div class="dot"></div><div class="ph">第 0 階段 · 地基</div><div class="t">0–3 個月</div><h4>核心平台雛形 + 治理層 MVP</h4><p>跑通一個 Agent 編排 + 稽核的閉環。</p></div>
-    <div class="step"><div class="dot"></div><div class="ph">第 1 階段 · 樣板</div><div class="t">3–9 個月</div><h4>能收錢的垂直案例</h4><p>1–2 家燈塔客戶上線，沉澱第一份導入 SOP。</p></div>
-    <div class="step"><div class="dot"></div><div class="ph">第 2 階段 · 複製</div><div class="t">9–18 個月</div><h4>樣板抽象為通用模組</h4><p>模組市集雛形 + 首批種子合夥商成交。</p></div>
-    <div class="step"><div class="dot"></div><div class="ph">第 3 階段 · 生態</div><div class="t">18 個月+</div><h4>合夥商網路自我增長</h4><p>收入結構由服務轉向訂閱 + 抽成。</p></div>
-  </div>
-</div></section>
-
-<!-- ============ 護城河 / 風險 ============ -->
-<section id="moat"><div class="wrap">
-  <div class="eyebrow">護城河 vs 上下夾擊</div>
-  <h2>不押純技術，押三件會隨時間變厚的資產</h2>
-  <p class="lead">11.5 層的風險是上下夾擊：上面的模型廠／雲廠可能向下整合，下面的客戶學會後可能自己做。</p>
-  <div class="grid">
-    <div class="mod"><div class="ico">📚</div><h3 style="font-size:17px">轉型 Know-how</h3><p style="color:var(--muted);font-size:14px">跨案累積的組織轉型方法論，愈做愈深。</p></div>
-    <div class="mod"><div class="ico">🕸️</div><h3 style="font-size:17px">生態網路效應</h3><p style="color:var(--muted);font-size:14px">合夥商與模組生態，網愈大收入愈大。</p></div>
-    <div class="mod"><div class="ico">📈</div><h3 style="font-size:17px">營運資料飛輪</h3><p style="color:var(--muted);font-size:14px">客戶資料訓練出愈用愈準的編排與最佳化。</p></div>
-  </div>
-  <p class="note">關鍵自保：刻意中立於模型廠與雲廠之上，可橋接多家底層，較不易被任一家向下整合一次吃掉。</p>
-</div></section>
-
-<!-- ============ 雙版本 ============ -->
-<section id="dual"><div class="wrap">
-  <div class="eyebrow">祛除禪機的方法</div>
-  <h2>永遠知道大願景底下，今年要靠哪一格吃飯</h2>
-  <p class="lead">不是不講大願景，而是清楚分開：哪句是拿去募資的故事，哪句是拿去簽合約的產品。</p>
+  <h3 class="sub">對外 vs 對內：永遠知道哪句是哪句</h3>
   <div class="dual">
     <div class="col story">
       <div class="k">對外 · 募資版（故事）</div>
@@ -338,13 +326,182 @@
   </div>
 </div></section>
 
+<!-- ============ 商業模式 ============ -->
+<section id="biz"><div class="wrap">
+  <div class="eyebrow">商業模式與網路效應</div>
+  <h2>11.5 層的客戶數是「所有企業」</h2>
+  <p class="lead">層級愈往上單一，規模愈受限；唯有水平 Enabler 的潛在客戶是整個市場。這是 11.5 層在規模性上最大的結構優勢。</p>
+  <table class="tbl">
+    <thead><tr><th>層級</th><th>客戶數</th><th>規模性</th></tr></thead>
+    <tbody>
+      <tr><td>AI Agent</td><td>單一應用</td><td><span class="pill p-red">有限</span></td></tr>
+      <tr><td>AI Native Department</td><td>單一企業</td><td><span class="pill p-gold">中等</span></td></tr>
+      <tr><td>AI Native Company</td><td>單一企業集團</td><td><span class="pill p-gold">中等</span></td></tr>
+      <tr class="hl"><td><b>11.5 Enabler</b></td><td><b>所有企業</b></td><td><span class="pill p-green">極大</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">收費結構：對應客戶從試用到深度依賴的旅程</h3>
+  <table class="tbl">
+    <thead><tr><th>收入來源</th><th>說明</th><th>計費邏輯</th></tr></thead>
+    <tbody>
+      <tr><td><b>平台訂閱</b></td><td>使用 Enabler 平台與基礎模組的月／年費</td><td>依席次或組織規模分級</td></tr>
+      <tr><td><b>使用量計費</b></td><td>Agent 執行量、任務量、編排次數</td><td>用多少付多少，與客戶價值對齊</td></tr>
+      <tr><td><b>導入服務</b></td><td>從零到一的轉型陪跑與客製模組</td><td>專案計價，逐步模組化以降低邊際成本</td></tr>
+      <tr><td><b>生態抽成</b></td><td>合夥商透過平台成交的分潤</td><td>平台抽成，網路愈大收入愈大</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">收入結構演進</h3>
+  <table class="tbl">
+    <thead><tr><th>時期</th><th>主要收入來源</th><th>毛利特性</th></tr></thead>
+    <tbody>
+      <tr><td>早期</td><td>導入服務為主</td><td>毛利較低、邊際成本高、現金流較快</td></tr>
+      <tr><td>中期</td><td>訂閱 + 使用量上升，服務佔比下降</td><td>毛利改善，收入可預測性提高</td></tr>
+      <tr><td>成熟期</td><td>訂閱 + 使用量 + 生態抽成為主</td><td>高毛利、強網路效應、低邊際成本</td></tr>
+    </tbody>
+  </table>
+  <p class="note">市場框架（待一手研究替換）：TAM 與「企業軟體 + 數位轉型顧問支出」同數量級；SAM 為語言與法規可覆蓋區域（先大中華 + 日本）內具數位基礎的企業；SOM 為未來 3 年以樣板案例可實際成交的早期客戶與合夥商。</p>
+</div></section>
+
+<!-- ============ 技術架構 ============ -->
+<section id="tech"><div class="wrap">
+  <div class="eyebrow">技術架構</div>
+  <h2>四層平台，治理層是與一般自動化工具最大的差異</h2>
+  <p class="lead">2026 年產業共識正從「模型 benchmark」轉向「production-ready 基礎設施」—— 編排、身份、閘道、可觀測性與內建治理。神公司的架構正是照這個方向設計。</p>
+  <table class="tbl">
+    <thead><tr><th>層</th><th>名稱</th><th>職責</th></tr></thead>
+    <tbody>
+      <tr><td><b>L4</b></td><td>方法論與模組層</td><td>把產業轉型劇本封裝成可安裝模組（招商、投放、交易…）</td></tr>
+      <tr class="hl"><td><b>L3</b></td><td>治理與信任層 ★</td><td>權限、稽核軌跡、人機審批、煞車與回溯機制</td></tr>
+      <tr><td><b>L2</b></td><td>Agent 編排引擎</td><td>定義、組合、排程、監控多個 Agent 協作完成任務</td></tr>
+      <tr><td><b>L1</b></td><td>底層橋接層</td><td>對接多家模型與雲，抽象成統一介面，可熱切換</td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><b>關鍵設計原則：</b>當 Agent 真的替公司行動，「可監督、可回溯、可踩煞車」是企業敢從 PoC 走向正式上線的前提，也是我們對外的信任賣點。這直接回應 Gartner 點名的取消主因 —— 治理薄弱。</div>
+
+  <h3 class="sub">生態定位：刻意中立於模型廠與雲廠之上</h3>
+  <div class="prose">
+    <p>我們不綁死任何一家模型或雲，而是作為它們與企業之間的編排與治理層。對客戶，降低被單一供應商鎖定的風險；對模型／雲廠，我們替它們把能力「最後一哩」送進企業營運，是放大其用量的夥伴而非對手；對自己，站在能橫跨多家底層的位置，較不易被任一家向下整合一次吃掉。</p>
+  </div>
+
+  <h3 class="sub">與既有實作的銜接（現成樣板素材）</h3>
+  <div class="grid">
+    <div class="mod"><h3 style="font-size:17px">AdPilot</h3><div class="en">Node.js + Meta Marketing API</div><p style="color:var(--muted);font-size:14px">自動化規則 + 告警，可重構為 L4「廣告投放模組」與 L2 編排範例。</p></div>
+    <div class="mod"><h3 style="font-size:17px">DigiChef 招商系統</h3><div class="en">餐飲招商路線</div><p style="color:var(--muted);font-size:14px">可萃取為「招商部門模組」樣板。</p></div>
+    <div class="mod"><h3 style="font-size:17px">二手交易平台</h3><div class="en">自動上架 / 去背 / 文案</div><p style="color:var(--muted);font-size:14px">是「電商營運模組」的現成素材。</p></div>
+  </div>
+  <p class="note">這些不是要直接變產品，而是先當成證明「Enabler 模式可複製」的樣板案例。</p>
+</div></section>
+
+<!-- ============ 進場路線 ============ -->
+<section id="road"><div class="wrap">
+  <div class="eyebrow">進場策略與里程碑</div>
+  <h2>先做通用核心，用一個最熟的垂直樣板證明它跑得通</h2>
+  <p class="lead">避免一開始就喊「同時 enable 三層、覆蓋所有產業」而失焦。先把價值講清楚，再水平展開。建議以台灣為基地、大中華與日本為首發市場。</p>
+  <div class="road">
+    <div class="step"><div class="dot"></div><div class="ph">第 0 階段 · 地基</div><div class="t">0–3 個月</div><h4>核心平台雛形 + 治理層 MVP</h4><p>跑通一個 Agent 編排 + 稽核的閉環。</p></div>
+    <div class="step"><div class="dot"></div><div class="ph">第 1 階段 · 樣板</div><div class="t">3–9 個月</div><h4>能收錢的垂直案例</h4><p>1–2 家燈塔客戶上線，沉澱第一份導入 SOP。</p></div>
+    <div class="step"><div class="dot"></div><div class="ph">第 2 階段 · 複製</div><div class="t">9–18 個月</div><h4>樣板抽象為通用模組</h4><p>模組市集雛形 + 首批種子合夥商成交。</p></div>
+    <div class="step"><div class="dot"></div><div class="ph">第 3 階段 · 生態</div><div class="t">18 個月+</div><h4>合夥商網路自我增長</h4><p>收入結構由服務轉向訂閱 + 抽成。</p></div>
+  </div>
+  <p class="note">首發垂直樣板可在「餐飲招商（DigiChef）」「廣告投放（AdPilot）」「電商／二手交易」三者中擇一啟動；本規劃採通用核心設計，三者皆可作為第一個證明點，最終選擇可依當下可成交客戶決定。</p>
+</div></section>
+
+<!-- ============ 護城河 ============ -->
+<section id="moat"><div class="wrap">
+  <div class="eyebrow">護城河 vs 上下夾擊</div>
+  <h2>不押純技術，押三件會隨時間變厚的資產</h2>
+  <p class="lead">11.5 層的風險是上下夾擊：上面的模型廠／雲廠可能向下整合，下面的客戶學會後可能自己做。因此護城河不押在「純技術」，而押在三件會隨時間變厚的資產。</p>
+  <div class="grid">
+    <div class="mod"><div class="ico">📚</div><h3 style="font-size:17px">轉型 Know-how</h3><p style="color:var(--muted);font-size:14px">跨案累積的組織轉型方法論，愈做愈深，後進者難以一次複製。</p></div>
+    <div class="mod"><div class="ico">🕸️</div><h3 style="font-size:17px">生態網路效應</h3><p style="color:var(--muted);font-size:14px">合夥商與模組生態，網愈大收入愈大、轉換成本愈高。</p></div>
+    <div class="mod"><div class="ico">📈</div><h3 style="font-size:17px">營運資料飛輪</h3><p style="color:var(--muted);font-size:14px">客戶營運資料訓練出愈用愈準的編排與最佳化。</p></div>
+  </div>
+  <p class="note">關鍵自保：刻意中立於模型廠與雲廠之上，可橋接多家底層，較不易被任一家向下整合一次吃掉。</p>
+</div></section>
+
+<!-- ============ RWA × L4 ============ -->
+<section id="rwa"><div class="wrap">
+  <div class="eyebrow">設計假設 · L4 的真實底座</div>
+  <h2>用 RWA + 區塊鏈，把 L4 從「禪機」變成「真東西」</h2>
+  <p class="lead">L4 Economy Layer 本來是最空、最像禪機的一層。但 Agent 之間要交易、要結算、要建立信譽 —— 鏈上的代幣化資產與不可竄改的信譽紀錄，正好可以給這層一個真實的底座。這是一個「設計假設」，需要對應的技術合夥人撐起（見下方核心團隊，背景待確認）。</p>
+  <div class="stats">
+    <div class="stat"><div class="n">~$29B</div><div class="l">2026 Q1 鏈上 RWA 代幣化規模（季增約 30%，不含穩定幣）</div><div class="src">來源：RWA.xyz</div></div>
+    <div class="stat"><div class="n">$3–5T</div><div class="l">Agentic 經濟到 2030 年的全球潛在規模</div><div class="src">來源：agentic economy 預測</div></div>
+    <div class="stat"><div class="n">$18.9T</div><div class="l">RWA 代幣化市場 2033 年預估（BCG／Ripple）</div><div class="src">來源：BCG / Ripple</div></div>
+    <div class="stat"><div class="n">16%</div><div class="l">目前僅 16% 美國消費者信任 AI 替自己付款 —— 信任仍是瓶頸</div><div class="src">來源：agentic commerce 調查</div></div>
+  </div>
+  <div class="prose">
+    <p>趨勢訊號很清楚：Google 推出 Universal Commerce Protocol、Coinbase 主導的 x402 支付協定在上線數月內已處理約 1.65 億筆 Agent 交易。Agent 對 Agent 的微支付（單次對話可觸發數百個 sub-cent 成本動作）讓傳統信用卡體系在經濟上不可行 —— 這正是<b>代幣化結算 + 鏈上信譽</b>能切入的縫隙。</p>
+    <p>若這個未來到來、而神公司又先聚集了足夠的 Agent 密度與信譽資料，網路效應會讓它成為終局贏家。<b>但這仍是一張「贏家通吃的彩券」，不是今年的營收</b> —— 計畫書裡會明確標示它是長期賭注，而非現金流來源。</p>
+  </div>
+</div></section>
+
+<!-- ============ 核心團隊 ============ -->
+<section id="team"><div class="wrap">
+  <div class="eyebrow">核心團隊</div>
+  <h2>兩位創辦人的經驗，是這套敘事的地基</h2>
+  <p class="lead">以下角色定位反映的是「設計意圖」。為避免在募資／招商文件中宣稱未經證實的背景（對方一查對不上、信任就崩了），兩位的真實近期經歷與頭銜<b>標示為待確認，須取得當事人同意並以真實背景填入後方可對外使用</b>。</p>
+  <div class="team">
+    <div class="person">
+      <div class="role">創辦人 · 願景與商業</div>
+      <h4>段曉雷</h4>
+      <span class="tbc">背景待確認</span>
+      <p>定位呼應其在網際網路基礎設施（IDC）、平台生態系的經驗 —— 11.5 層 Enabler 賣的是「信任與可歸責」，與 IDC 時代賣 SLA 是同一塊肌肉。具體近十年經歷與「那段話」內容待本人提供後填入。</p>
+    </div>
+    <div class="person">
+      <div class="role">共同創辦人 · 技術與 L4 底座</div>
+      <h4>林吟芝 博士</h4>
+      <span class="tbc">背景待確認</span>
+      <p>對應區塊鏈 / AI / RWA 主軸，預期撐起 L4 Economy Layer 的代幣化結算與鏈上信譽底座。博士領域、學經歷、以及在 RWA／鏈上專案的具體參與，待本人提供後填入。</p>
+    </div>
+  </div>
+  <p class="note">原則：凡涉及具名創辦人／顧問之真實近期背景與參與意願，未確認前不對外宣稱。</p>
+</div></section>
+
+<!-- ============ 風險 ============ -->
+<section id="risk"><div class="wrap">
+  <div class="eyebrow">風險與因應</div>
+  <h2>把最可能殺死這家公司的五件事攤開</h2>
+  <table class="tbl">
+    <thead><tr><th>風險</th><th>說明</th><th>因應</th></tr></thead>
+    <tbody>
+      <tr><td><b>上下夾擊</b></td><td>模型／雲廠向下整合，或客戶自建</td><td>以 know-how 沉澱 + 生態網路效應築護城河，保持底層中立</td></tr>
+      <tr><td><b>定位太寬</b></td><td>「通用 Enabler」訴求模糊難成交</td><td>用單一垂直樣板先講清楚價值，再水平展開</td></tr>
+      <tr><td><b>治理失靈</b></td><td>Agent 行動失控導致客戶損失</td><td>治理層為產品核心，可審批／回溯／煞車不可妥協</td></tr>
+      <tr><td><b>過度依賴服務</b></td><td>停在高成本顧問模式無法規模化</td><td>強制把重複服務模組化，推動收入向訂閱遷移</td></tr>
+      <tr><td><b>人物前提風險</b></td><td>以特定人物為號召但背景未確認</td><td>創辦人／顧問角色一律待確認後填入，不對外宣稱未證實事項</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">待確認與下一步</h3>
+  <div class="prose">
+    <p>本規劃可正式對外使用前，建議優先釐清：<b>(1) 人物角色</b> —— 確認兩位創辦人的真實近期背景與參與意願；<b>(2) 首發樣板</b> —— 在三個候選垂直中拍板第一個證明點；<b>(3) 市場數字</b> —— 以一手研究替換所有示意性的神公司自有財務數字（本頁外部市場數據已附來源，僅供環境參照）；<b>(4) 用途版本</b> —— 依對象（投資人／合夥商／內部）各自微調重點與語氣。</p>
+  </div>
+</div></section>
+
+<!-- ============ 參考來源 ============ -->
+<section id="sources"><div class="wrap">
+  <div class="eyebrow">參考來源</div>
+  <h2>外部市場數據出處</h2>
+  <p class="lead">本頁引用的市場規模與趨勢數字來自下列公開產業報導，用以提供環境參照；神公司自身的財務推估仍須以一手研究驗證。</p>
+  <div class="sources">
+    • Agentic AI 採用率與市場統計 2026（$7.6B→$10.8B、41% 成長、79% vs 11% 上線落差）：<a href="https://onereach.ai/blog/agentic-ai-adoption-rates-roi-market-trends/" target="_blank" rel="noopener">onereach.ai</a><br>
+    • Gartner：agentic AI 炒作週期與專案取消預測：<a href="https://www.gartner.com/en/articles/hype-cycle-for-agentic-ai" target="_blank" rel="noopener">gartner.com</a><br>
+    • Agentic commerce 趨勢與 $3–5T 經濟規模、x402／UCP、信任落差：<a href="https://commercetools.com/blog/ai-trends-shaping-agentic-commerce" target="_blank" rel="noopener">commercetools.com</a> ｜ <a href="https://nevermined.ai/blog/ai-agent-payment-statistics" target="_blank" rel="noopener">nevermined.ai</a><br>
+    • RWA 代幣化市場規模與長期預估（$29B、$18.9T、$30T）：<a href="https://www.finextra.com/blogposting/31421/real-world-asset-rwa-tokenization-in-2026-market-growth-trends-amp-opportunities" target="_blank" rel="noopener">finextra.com</a> ｜ <a href="https://investax.io/blog/q1-2026-real-world-asset-tokenization-market-report" target="_blank" rel="noopener">investax.io</a><br>
+    • NVIDIA 黃仁勳「五層蛋糕」AI 產業結構：<a href="https://www.gvm.com.tw/article/128656" target="_blank" rel="noopener">gvm.com.tw（遠見）</a>
+  </div>
+</div></section>
+
 <!-- ============ FOOTER ============ -->
 <footer><div class="wrap">
-  <div class="quote-hero" style="margin-top:0">神公司 ／ Operating System for AI-Native Enterprises</div>
+  <div class="quote-hero" style="margin-top:0;font-size:22px">神公司 ／ Operating System for AI-Native Enterprises</div>
   <div class="disc">
-    <b>關於本頁面的定位：</b>本頁為「願景與事業設計」的視覺化呈現，描述的是一個尚待創立的組織與其目標，並非對既有事實的陳述。所有市場規模、財務數字、時程與里程碑均為基於公開趨勢與假設的「規劃推估」，須在實際執行前以一手資料重新驗證。凡涉及具體人物之角色（含創辦人、顧問、合夥人）皆待當事人同意並以真實近期背景填入後，方可對外使用。
+    <b>關於本頁面的定位：</b>本頁為「願景與事業設計」的視覺化呈現，描述的是一個尚待創立的組織與其目標，並非對既有事實的陳述。外部市場數據已標註公開來源，僅供環境參照；神公司自身的市場規模、財務數字、時程與里程碑均為基於趨勢與假設的「規劃推估」，須在實際執行前以一手資料重新驗證。凡涉及具體人物之角色（含創辦人、顧問、合夥人）皆待當事人同意並以真實近期背景填入後，方可對外使用。
   </div>
-  <p class="note">版本 v1.0（草案）· 製作日期 2026 年 5 月 · 機密文件，僅供內部與受邀對象閱覽</p>
+  <p class="note">版本 v2.0（深入規劃版）· 更新日期 2026 年 6 月 · 機密文件，僅供內部與受邀對象閱覽</p>
 </div></footer>
 
 </body>
